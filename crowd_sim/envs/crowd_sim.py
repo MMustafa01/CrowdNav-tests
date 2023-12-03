@@ -47,7 +47,14 @@ class CrowdSim(gym.Env):
         self.states = None
         self.action_values = None
         self.attention_weights = None
-
+        self.testing_scenario = {
+                                 'goal_change': self.change_goal,
+                                 'adversarial':self.adversarial_agent,
+                                 'adversarial_by_birth': self.adversarial_by_birth,
+                                 'kidnapped_robot_problem': 4,
+                                 'Static_Obstacles': True
+                                 }
+        
     def configure(self, config):
         self.config = config
         self.time_limit = config.getint('env', 'time_limit')
@@ -86,11 +93,12 @@ class CrowdSim(gym.Env):
         Generate human position according to certain rule
         Rule square_crossing: generate start/goal position at two sides of y-axis
         Rule circle_crossing: generate start position on a circle, goal position is at the opposite side
-
+        Edit: This method also creates a list for adveserial agents
         :param human_num:
         :param rule:
         :return:
         """
+        
         # initial min separation distance to avoid danger penalty at beginning
         if rule == 'square_crossing':
             self.humans = []
@@ -101,28 +109,34 @@ class CrowdSim(gym.Env):
             for i in range(human_num):
                 self.humans.append(self.generate_circle_crossing_human())
         elif rule == 'mixed':
+            static_possibilities = np.append(np.arange(human_num),human_num) #[1 2 3 4 5]
+            static_num = np.random.choice(static_possibilities) 
+            dynamic_num = human_num - static_num
             # mix different raining simulation with certain distribution
-            static_human_num = {0: 0.05, 1: 0.2, 2: 0.2, 3: 0.3, 4: 0.1, 5: 0.15}
-            dynamic_human_num = {1: 0.3, 2: 0.3, 3: 0.2, 4: 0.1, 5: 0.1}
-            static = True if np.random.random() < 0.2 else False
-            prob = np.random.random()
-            for key, value in sorted(static_human_num.items() if static else dynamic_human_num.items()):
-                if prob - value <= 0:
-                    human_num = key
-                    break
-                else:
-                    prob -= value
+            # static_human_num = {0: 0.05, 1: 0.2, 2: 0.2, 3: 0.3, 4: 0.1, 5: 0.15}
+            # dynamic_human_num = {1: 0.3, 2: 0.3, 3: 0.2, 4: 0.1, 5: 0.1}
+            # static = True if np.random.random() < 0.2 else False
+            # prob = np.random.random()
+            # for key, value in sorted(static_human_num.items() if static else dynamic_human_num.items()):
+            #     if prob - value <= 0:
+            #         human_num = key
+            #         break
+            #     else:
+            #         prob -= value
+            # print(f'The humans are {"static" if static else "dynamic"}\nThe human number is  {human_num} ')
             self.human_num = human_num
             self.humans = []
-            if static:
+            
+            if static_num: #if static num != 0
                 # randomly initialize static objects in a square of (width, height)
-                width = 4
-                height = 8
+                width = self.circle_radius #maybe make this a tunable parameter
+                height = self.circle_radius
                 if human_num == 0:
                     human = Human(self.config, 'humans')
                     human.set(0, -10, 0, -10, 0, 0, 0)
                     self.humans.append(human)
-                for i in range(human_num):
+                for i in range(static_num):
+                    radius = np.random.choice(np.arange(self.circle_radius//2)) #Change later
                     human = Human(self.config, 'humans')
                     if np.random.random() > 0.5:
                         sign = -1
@@ -138,12 +152,12 @@ class CrowdSim(gym.Env):
                                 break
                         if not collide:
                             break
-                    human.set(px, py, px, py, 0, 0, 0)
+                    human.set(px, py, px, py, 0, 0, 0, radius=radius)
                     self.humans.append(human)
-            else:
+            if dynamic_num:
                 # the first 2 two humans will be in the circle crossing scenarios
                 # the rest humans will have a random starting and end position
-                for i in range(human_num):
+                for i in range(dynamic_num):
                     if i < 2:
                         human = self.generate_circle_crossing_human()
                     else:
@@ -151,6 +165,15 @@ class CrowdSim(gym.Env):
                     self.humans.append(human)
         else:
             raise ValueError("Rule doesn't exist")
+        # This list will be used in the testing scenario of adversarial agents
+        self.adversarial_agent_list = np.zeros(human_num)
+        # if self.testing_scenario['adversarial_by_birth']:
+        #  Add a condition to print the adversarial agent, when you add the new parameters to config files
+        self.adversarial_by_birth_agent = np.random.randint(1,human_num)
+        print(f"The adverserial agent by birth is {self.adversarial_by_birth_agent }")
+        if rule =='mixed':
+            print(f'The number of dynamic agents {dynamic_num}\n The number of static agents are {static_num}')
+
 
     def generate_circle_crossing_human(self):
         human = Human(self.config, 'humans')
@@ -399,10 +422,18 @@ class CrowdSim(gym.Env):
             # update all agents
             self.robot.step(action)
             for i, human_action in enumerate(human_actions):
+                '''
+                The testing suite should do here
+                '''
+                scenarios = ['adversarial_by_birth']
+                self.testing_suite(human, human_id=i, scenarios=scenarios)
+                # self.sudden_change_of_intent( epsilon = 0.5)
+                # print('sudden change of intent called')
                 self.humans[i].step(human_action)
             self.global_time += self.time_step
             for i, human in enumerate(self.humans):
                 # only record the first time the human reaches the goal
+                # print(f' The i is {i} \n {len(self.human_times)} \n {len(self.humans)}')
                 if self.human_times[i] == 0 and human.reached_destination():
                     self.human_times[i] = self.global_time
 
@@ -416,9 +447,94 @@ class CrowdSim(gym.Env):
                 ob = [human.get_next_observable_state(action) for human, action in zip(self.humans, human_actions)]
             elif self.robot.sensor == 'RGB':
                 raise NotImplementedError
-
         return ob, reward, done, info
+    def testing_suite(self, human,conflict_radius = None, scenarios = ['goal_change'], human_id = None)->None:
+        '''
+        The testing suite method incorporates all the crowd modelling scenarios implemented on one human
+        '''  
+        if human_id == None:
+            raise  Exception("Please input the id of the human") 
+        radius_check = self.conflict_cirlce_check(human, conflict_radius)
+        
+        for scenario in scenarios:
+            if radius_check:
+                if self.testing_scenario[scenario] == self.testing_scenario['adversarial_by_birth']:
+                    self.testing_scenario[scenario]()
+                else:
+                    self.testing_scenario[scenario](human,  human_id = human_id)
 
+        return 
+    def conflict_cirlce_check(self,human, conflict_Radius = None)-> bool:
+        '''
+        This function checks the circle heuristic, i.e. if the human is in the conflict radius 
+        Parameters:
+        Conflict_Radius (int): The radius of the conflict cirlce
+        Returns:
+        check (bool):   True if human is in the circle
+                        False if human is outside the circle
+        '''
+        human_pose = (human.px, human.py)
+        robot_pose = (self.robot.px, self.robot.py)
+        if not conflict_Radius:
+            conflict_Radius = self.square_width/4
+        # Check if the i_th human is in the 
+        check =  (human_pose[0] -robot_pose[0])**2 +(human_pose[1] -robot_pose[1])**2 <= conflict_Radius**2    
+        return check
+    def change_goal(self, human, epsilon = 0.05, human_id = None):
+        old_goal = (human.gx, human.gy)
+        angle = np.random.random()
+        radius = np.random.uniform(0, self.circle_radius )
+        random_variable = np.random.rand()
+        
+        if epsilon > random_variable:
+            # print(f"This is {(random_variable,epsilon)}")
+            gx = radius * np.cos(angle)
+            gy = radius * np.sin(angle)
+            human.gx = np.random.choice([1,-1])*gx
+            human.gy = np.random.choice([1,-1])*gy
+            # print(f'The goal position of the {human_id}-th human has been changed from {old_goal} to {(human.gx, human.gy)}')
+        return
+    def adversarial_agent(self, human, epsilon = 0.05, human_id = None):
+        random_variable = np.random.rand()
+        if epsilon > random_variable:
+            self.adversarial_agent_list[human_id] = 1
+        count = 0
+        for i in range(len(self.adversarial_agent_list)):
+            if self.adversarial_agent_list[i]:
+                self.humans[i].gx = self.robot.px
+                self.humans[i].gy = self.robot.py
+                count += 1
+        # print(f'The number of adversarial agents are {np.sum(self.adversarial_agent_list)}')
+        return 
+    def sudden_change_of_intent(self, epsilon = 0.0005):
+        if self.human_num == 0:
+            return None
+        else: 
+            angle = np.random.random()
+            stochastic_arr = np.random.rand(self.human_num)
+            stochastic_arr[stochastic_arr > epsilon]
+            unique,counts = np.unique(stochastic_arr, return_counts= True)
+            counts_dic = dict(zip(unique,counts))
+            sorter = np.argsort(stochastic_arr)
+            indexes = sorter[np.searchsorted(stochastic_arr,unique, sorter= sorter)]
+            for i in indexes:
+                gx = self.circle_radius * np.cos(angle)
+                gy = self.circle_radius * np.cos(angle)
+                goal = (gx, gy)
+                self.humans[i].gx = np.random.choice([1,-1])*gx
+                self.humans[i].gy = np.random.choice([1,-1])*gy
+                # print(f"The human {i} just changed their goal to {goal}")
+    def adversarial_by_birth(self):
+        #Maybe this method shouldnt be added in the testing suite since testing suite is called in a loop over 
+        '''
+        There is an error: THe ORCA agent just stops when it gets close 
+         
+        '''
+        self.humans[self.adversarial_by_birth_agent].gx = self.robot.px
+        self.humans[self.adversarial_by_birth_agent].gy = self.robot.py
+        return 
+
+        
     def render(self, mode='human', output_file=None):
         from matplotlib import animation
         import matplotlib.pyplot as plt
