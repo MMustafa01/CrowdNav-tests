@@ -452,16 +452,16 @@ class CrowdSim(gym.Env):
         '''
         The testing suite method incorporates all the crowd modelling scenarios implemented on one human
         '''  
-        if human_id == None:
-            raise  Exception("Please input the id of the human") 
-        radius_check = self.conflict_cirlce_check(human, conflict_radius)
+        # if human_id == None:
+        #     raise  Exception("Please input the id of the human") 
+        # radius_check = self.conflict_cirlce_check(human, conflict_radius)
         
-        for scenario in scenarios:
-            if radius_check:
-                if self.testing_scenario[scenario] == self.testing_scenario['adversarial_by_birth']:
-                    self.testing_scenario[scenario]()
-                else:
-                    self.testing_scenario[scenario](human,  human_id = human_id)
+        # for scenario in scenarios:
+        #     if radius_check:
+        #         if self.testing_scenario[scenario] == self.testing_scenario['adversarial_by_birth']:
+        #             self.testing_scenario[scenario]()
+        #         else:
+        #             self.testing_scenario[scenario](human,  human_id = human_id)
 
         return 
     def conflict_cirlce_check(self,human, conflict_Radius = None)-> bool:
