@@ -112,18 +112,6 @@ class CrowdSim(gym.Env):
             static_possibilities = np.append(np.arange(human_num),human_num) #[1 2 3 4 5]
             static_num = np.random.choice(static_possibilities) 
             dynamic_num = human_num - static_num
-            # mix different raining simulation with certain distribution
-            # static_human_num = {0: 0.05, 1: 0.2, 2: 0.2, 3: 0.3, 4: 0.1, 5: 0.15}
-            # dynamic_human_num = {1: 0.3, 2: 0.3, 3: 0.2, 4: 0.1, 5: 0.1}
-            # static = True if np.random.random() < 0.2 else False
-            # prob = np.random.random()
-            # for key, value in sorted(static_human_num.items() if static else dynamic_human_num.items()):
-            #     if prob - value <= 0:
-            #         human_num = key
-            #         break
-            #     else:
-            #         prob -= value
-            # print(f'The humans are {"static" if static else "dynamic"}\nThe human number is  {human_num} ')
             self.human_num = human_num
             self.humans = []
             
@@ -170,7 +158,7 @@ class CrowdSim(gym.Env):
         # if self.testing_scenario['adversarial_by_birth']:
         #  Add a condition to print the adversarial agent, when you add the new parameters to config files
         self.adversarial_by_birth_agent = np.random.randint(1,human_num)
-        print(f"The adverserial agent by birth is {self.adversarial_by_birth_agent }")
+        # print(f"The adverserial agent by birth is {self.adversarial_by_birth_agent }")
         if rule =='mixed':
             print(f'The number of dynamic agents {dynamic_num}\n The number of static agents are {static_num}')
 
@@ -425,10 +413,9 @@ class CrowdSim(gym.Env):
                 '''
                 The testing suite should do here
                 '''
-                scenarios = ['adversarial_by_birth']
-                self.testing_suite(human, human_id=i, scenarios=scenarios)
-                # self.sudden_change_of_intent( epsilon = 0.5)
-                # print('sudden change of intent called')
+                # scenarios = ['adversarial_by_birth']
+                # self.testing_suite(human, human_id=i, scenarios=scenarios)
+
                 self.humans[i].step(human_action)
             self.global_time += self.time_step
             for i, human in enumerate(self.humans):
@@ -452,16 +439,16 @@ class CrowdSim(gym.Env):
         '''
         The testing suite method incorporates all the crowd modelling scenarios implemented on one human
         '''  
-        # if human_id == None:
-        #     raise  Exception("Please input the id of the human") 
-        # radius_check = self.conflict_cirlce_check(human, conflict_radius)
+        if human_id == None:
+            raise  Exception("Please input the id of the human") 
+        radius_check = self.conflict_cirlce_check(human, conflict_radius)
         
-        # for scenario in scenarios:
-        #     if radius_check:
-        #         if self.testing_scenario[scenario] == self.testing_scenario['adversarial_by_birth']:
-        #             self.testing_scenario[scenario]()
-        #         else:
-        #             self.testing_scenario[scenario](human,  human_id = human_id)
+        for scenario in scenarios:
+            if radius_check:
+                if self.testing_scenario[scenario] == self.testing_scenario['adversarial_by_birth']:
+                    self.testing_scenario[scenario]()
+                else:
+                    self.testing_scenario[scenario](human,  human_id = human_id)
 
         return 
     def conflict_cirlce_check(self,human, conflict_Radius = None)-> bool:
