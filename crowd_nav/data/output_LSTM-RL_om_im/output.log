@@ -1,0 +1,9 @@
+2023-12-05 19:46:29, INFO: Current git head hash code: %s
+2023-12-05 19:46:29, INFO: Using device: cuda:0
+2023-12-05 19:46:29, INFO: Policy: OM-LSTM-RL w/ pairwise interaction module
+2023-12-05 19:46:35, INFO: human number: 5
+2023-12-05 19:46:35, INFO: Not randomize human's radius and preferred speed
+2023-12-05 19:46:35, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-12-05 19:46:35, INFO: Square width: 10.0, circle width: 4.0
+2023-12-05 19:46:35, INFO: Current learning rate: 0.010000
+2023-12-05 20:00:37, INFO: TRAIN has success rate: 0.89, collision rate: 0.09, nav time: 12.18, total reward: 0.2416
