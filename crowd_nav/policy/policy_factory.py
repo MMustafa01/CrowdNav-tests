@@ -8,4 +8,4 @@ from crowd_nav.policy.mamba_rl import MambaRL
 policy_factory['cadrl'] = CADRL
 policy_factory['lstm_rl'] = LstmRL
 policy_factory['sarl'] = SARL
-policy_factory['mamba_rl'] = MambaRL
+policy_factory['MambaRL'] = MambaRL
