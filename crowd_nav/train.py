@@ -135,9 +135,10 @@ def main():
     logging.info(f'Imitation learning has ended')
     explorer.update_target_model(model)
 
+
     logging.info(f'Reinforcement learning has started')
     # reinforcement learning
-    # policy.set_env(env) # This line has no purpose
+    policy.set_env(env) # This line has no purpose
     robot.set_policy(policy)
     robot.print_info()
     trainer.set_learning_rate(rl_learning_rate)
@@ -159,6 +160,7 @@ def main():
 
         # evaluate the model
         if episode % evaluation_interval == 0:
+            logging.info(f'evaluating model on {episode} episode')
             explorer.run_k_episodes(env.case_size['val'], 'val', episode=episode)
 
         # sample k episodes into memory and optimize over the generated memory
