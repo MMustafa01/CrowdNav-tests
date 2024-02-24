@@ -33,8 +33,8 @@ class ValueNetork(nn.Module):
 
 class MambaRL(MultiHumanRL):
     def __init__(self):
-        self.name = 'MambaRL'
         super().__init__()
+        self.name = 'MambaRL'
 
     def configure(self,config):
         d_state = 16
@@ -48,8 +48,6 @@ class MambaRL(MultiHumanRL):
         self.set_common_parameters(config) #check what this does
         mlp_dims = [int(x) for x in config.get('MambaRL', 'mlp_dims').split(', ')]
         self.multiagent_training = config.getboolean('MambaRL', 'multiagent_training')
-        
-        super().__init__()
         
         self.model = ValueNetork(self.input_dim(), #joint state dimensions
                                  mlp_dims=mlp_dims,
