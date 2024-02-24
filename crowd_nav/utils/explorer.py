@@ -50,18 +50,22 @@ class Explorer(object):
                 if isinstance(info, Danger):
                     too_close += 1
                     min_dist.append(info.min_dist)
+            tqdm.write(f'Done with episode {i}/{k}')
 
             if isinstance(info, ReachGoal):
                 success += 1
                 success_times.append(self.env.global_time)
+                tqdm.write(f'Goal reached')
             elif isinstance(info, Collision):
                 collision += 1
                 collision_cases.append(i)
                 collision_times.append(self.env.global_time)
+                tqdm.write(f'Collision occured')
             elif isinstance(info, Timeout):
                 timeout += 1
                 timeout_cases.append(i)
                 timeout_times.append(self.env.time_limit)
+                tqdm.write(f'Time out')
             else:
                 raise ValueError('Invalid end signal from environment')
 
@@ -69,7 +73,7 @@ class Explorer(object):
                 if isinstance(info, ReachGoal) or isinstance(info, Collision):
                     # only add positive(success) or negative(collision) experience in experience set
                     self.update_memory(states, actions, rewards, imitation_learning)
-
+                tqdm.write(f'Experience set size: {self.memory}/{self.memory.capacity}')
             cumulative_rewards.append(sum([pow(self.gamma, t * self.robot.time_step * self.robot.v_pref)
                                            * reward for t, reward in enumerate(rewards)]))
 

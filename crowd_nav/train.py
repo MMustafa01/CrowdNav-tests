@@ -132,10 +132,12 @@ def main():
         torch.save(model.state_dict(), il_weight_file)
         logging.info('Finish imitation learning. Weights saved.')
         logging.info('Experience set size: %d/%d', len(memory), memory.capacity)
+    logging.info(f'Imitation learning has ended')
     explorer.update_target_model(model)
 
+    logging.info(f'Reinforcement learning has started')
     # reinforcement learning
-    policy.set_env(env)
+    # policy.set_env(env) # This line has no purpose
     robot.set_policy(policy)
     robot.print_info()
     trainer.set_learning_rate(rl_learning_rate)
