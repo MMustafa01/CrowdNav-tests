@@ -17,6 +17,7 @@ class ValueNetork(nn.Module):
         '''
         Maybe use a sequential layer here
         '''
+        print(f'input dimension = {input_dim}')
         self.mambaLayer = Mamba(
             # This module uses roughly 3 * expand * d_model^2 parameters
             d_model=input_dim, # Model dimension d_model
@@ -27,8 +28,14 @@ class ValueNetork(nn.Module):
         self.value_network = mlp(input_dim, mlp_dims)
 
     def forward(self,state):
-        x = self.mambaLayer(input)
+        # print(state.shape)
+        x = self.mambaLayer(state)
+        
+        
+        # print(x.shape)
         value = self.value_network(x)
+        # print(value.shape)
+
         return value
 
 class MambaRL(MultiHumanRL):
@@ -54,6 +61,7 @@ class MambaRL(MultiHumanRL):
                                  d_state=d_state,
                                  d_conv=d_conv,
                                  expand=expand)
+        print(self.model.eval())
         logging.info(f'Policy:{self.name}')
         return
     '''

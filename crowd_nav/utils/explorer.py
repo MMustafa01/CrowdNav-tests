@@ -2,6 +2,7 @@ import logging
 import copy
 import torch
 from crowd_sim.envs.utils.info import *
+from tqdm import tqdm
 
 
 class Explorer(object):
@@ -32,7 +33,8 @@ class Explorer(object):
         cumulative_rewards = []
         collision_cases = []
         timeout_cases = []
-        for i in range(k):
+        # tqdm.write(f'Running for {k} episodes')
+        for i in tqdm(range(k)):
             ob = self.env.reset(phase)
             done = False
             states = []

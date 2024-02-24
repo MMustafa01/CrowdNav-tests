@@ -37,6 +37,9 @@ class Trainer(object):
 
                 self.optimizer.zero_grad()
                 outputs = self.model(inputs)
+                # print('Prints in trainer.py')
+                # print(outputs.shape)
+                # print(values.shape)
                 loss = self.criterion(outputs, values)
                 loss.backward()
                 self.optimizer.step()
