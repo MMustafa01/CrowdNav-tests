@@ -160,7 +160,7 @@ def main():
 
         # evaluate the model
         if episode % evaluation_interval == 0:
-            logging.info(f'evaluating model on {episode} episode')
+            logging.info(f'evaluating model on episode number {episode} ')
             explorer.run_k_episodes(env.case_size['val'], 'val', episode=episode)
 
         # sample k episodes into memory and optimize over the generated memory

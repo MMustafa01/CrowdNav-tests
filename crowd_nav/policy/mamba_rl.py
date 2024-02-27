@@ -28,12 +28,19 @@ class ValueNetork(nn.Module):
         self.value_network = mlp(input_dim, mlp_dims)
 
     def forward(self,state):
+        # print('State')
         # print(state.shape)
         x = self.mambaLayer(state)
+        # print('Mamba Layer')
         
-        
+        x = x.squeeze()
         # print(x.shape)
+        # joint_state = torch.cat([state, x], dim=1)
+        # print(joint_state.shape)
         value = self.value_network(x)
+        # print('Value network')
+        # print(value.shape)
+
         # print(value.shape)
 
         return value
@@ -50,6 +57,9 @@ class MambaRL(MultiHumanRL):
         '''
         Eventually set everything in this one'
         Need to read MLP/Value network dimensions 
+
+        Need to understand the parameters of 
+        mamba, i.e. d_state, d_conv,expand
 
         '''
         self.set_common_parameters(config) #check what this does
