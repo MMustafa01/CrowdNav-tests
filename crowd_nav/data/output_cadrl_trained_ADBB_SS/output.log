@@ -1,0 +1,10 @@
+2023-12-18 23:55:45, INFO: Current git head hash code: %s
+2023-12-18 23:55:45, INFO: Using device: cpu
+2023-12-18 23:55:45, INFO: Policy: CADRL without occupancy map
+2023-12-18 23:55:45, INFO: human number: 5
+2023-12-18 23:55:45, INFO: Not randomize human's radius and preferred speed
+2023-12-18 23:55:45, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-12-18 23:55:45, INFO: Square width: 10.0, circle width: 4.0
+2023-12-18 23:55:45, INFO: The testing scenarios are: adversarial_by_birth sudden_speed_up
+2023-12-18 23:55:45, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2023-12-18 23:55:45, INFO: Current learning rate: 0.010000

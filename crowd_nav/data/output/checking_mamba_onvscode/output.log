@@ -1,0 +1,9 @@
+2024-02-24 17:39:36, INFO: Current git head hash code: %s
+2024-02-24 17:39:36, INFO: Using device: cuda:0
+2024-02-24 17:39:37, INFO: Policy:MambaRL
+2024-02-24 17:39:37, INFO: human number: 5
+2024-02-24 17:39:37, INFO: Not randomize human's radius and preferred speed
+2024-02-24 17:39:37, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-02-24 17:39:37, INFO: Square width: 10.0, circle width: 4.0
+2024-02-24 17:39:37, INFO: Current learning rate: 0.010000
+2024-02-24 17:39:37, INFO: Training policy through Imitation learning for 500

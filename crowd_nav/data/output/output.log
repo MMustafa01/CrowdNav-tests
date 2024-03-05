@@ -1,0 +1,10 @@
+2023-11-15 09:41:00, INFO: Current git head hash code: %s
+2023-11-15 09:41:00, INFO: Using device: cpu
+2023-11-15 09:41:00, INFO: Policy: SARL w/ global state
+2023-11-15 09:41:00, INFO: human number: 5
+2023-11-15 09:41:00, INFO: Not randomize human's radius and preferred speed
+2023-11-15 09:41:00, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-11-15 09:41:00, INFO: Square width: 10.0, circle width: 4.0
+2023-11-15 09:41:00, INFO: Load imitation learning trained weights.
+2023-11-15 09:41:00, INFO: Agent is invisible and has holonomic kinematic constraint
+2023-11-15 09:41:00, INFO: Current learning rate: 0.001000

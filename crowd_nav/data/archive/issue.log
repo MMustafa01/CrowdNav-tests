@@ -1,0 +1,11 @@
+2023-12-10 14:38:12, INFO: Current git head hash code: %s
+2023-12-10 14:38:12, INFO: Using device: cpu
+2023-12-10 14:38:12, INFO: Policy: SARL w/ global state
+2023-12-10 14:38:12, INFO: human number: 5
+2023-12-10 14:38:12, INFO: Not randomize human's radius and preferred speed
+2023-12-10 14:38:12, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-12-10 14:38:12, INFO: Square width: 10.0, circle width: 4.0
+2023-12-10 14:38:12, INFO: Current learning rate: 0.010000
+2023-12-10 14:41:10, INFO: TRAIN has success rate: 0.89, collision rate: 0.09, nav time: 12.18, total reward: 0.2416
+didn't work until 17:00:00 either
+ 

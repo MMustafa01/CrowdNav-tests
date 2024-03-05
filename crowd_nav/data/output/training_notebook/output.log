@@ -1,0 +1,10 @@
+2024-02-24 14:43:23, DEBUG: Popen(['git', 'cat-file', '--batch-check'], cwd=/home/or06360/Capstone/CrowdNav-tests, stdin=<valid stream>, shell=False, universal_newlines=False)
+2024-02-24 14:43:23, INFO: Current git head hash code: %s
+2024-02-24 14:43:23, INFO: Using device: cuda:0
+2024-02-24 14:43:25, INFO: Policy:MambaRL
+2024-02-24 14:43:28, INFO: human number: 5
+2024-02-24 14:43:28, INFO: Not randomize human's radius and preferred speed
+2024-02-24 14:43:28, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-02-24 14:43:28, INFO: Square width: 10.0, circle width: 4.0
+2024-02-24 14:43:35, INFO: Current learning rate: 0.010000
+2024-02-24 15:11:34, INFO: TRAIN has success rate: 0.89, collision rate: 0.09, nav time: 12.18, total reward: 0.2416
