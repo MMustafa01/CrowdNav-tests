@@ -1,0 +1,180 @@
+2024-02-27 12:53:45, INFO: Current git head hash code: %s
+2024-02-27 12:53:45, INFO: Using device: cuda:0
+2024-02-27 12:53:45, INFO: Policy:MambaRL
+2024-02-27 12:53:45, INFO: human number: 5
+2024-02-27 12:53:45, INFO: Not randomize human's radius and preferred speed
+2024-02-27 12:53:45, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-02-27 12:53:45, INFO: Square width: 10.0, circle width: 4.0
+2024-02-27 12:53:45, INFO: Current learning rate: 0.010000
+2024-02-27 12:53:45, INFO: Training policy through Imitation learning for 500
+2024-02-27 12:54:01, INFO: TRAIN has success rate: 1.00, collision rate: 0.00, nav time: 9.24, total reward: 0.3903
+2024-02-27 12:54:20, INFO: Finish imitation learning. Weights saved.
+2024-02-27 12:54:20, INFO: Experience set size: 18473/100000
+2024-02-27 12:54:20, INFO: Imitation learning has ended
+2024-02-27 12:54:20, INFO: Reinforcement learning has started
+2024-02-27 12:54:20, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-02-27 12:54:20, INFO: Current learning rate: 0.001000
+2024-02-27 12:54:20, INFO: evaluating model on episode number 0 
+2024-02-27 13:01:34, INFO: VAL   in episode 0 has success rate: 0.95, collision rate: 0.05, nav time: 10.29, total reward: 0.1728
+2024-02-27 13:01:34, INFO: Frequency of being in danger: 0.34 and average min separate distance in danger: 0.04
+2024-02-27 13:01:38, INFO: TRAIN in episode 0 has success rate: 1.00, collision rate: 0.00, nav time: 17.50, total reward: 0.1572
+2024-02-27 13:01:42, INFO: TRAIN in episode 1 has success rate: 1.00, collision rate: 0.00, nav time: 14.50, total reward: 0.2228
+2024-02-27 13:01:45, INFO: TRAIN in episode 2 has success rate: 1.00, collision rate: 0.00, nav time: 16.50, total reward: 0.1805
+2024-02-27 13:01:49, INFO: TRAIN in episode 3 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:01:53, INFO: TRAIN in episode 4 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:01:56, INFO: TRAIN in episode 5 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:02:00, INFO: TRAIN in episode 6 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.2059
+2024-02-27 13:02:04, INFO: TRAIN in episode 7 has success rate: 1.00, collision rate: 0.00, nav time: 16.00, total reward: 0.1902
+2024-02-27 13:02:08, INFO: TRAIN in episode 8 has success rate: 1.00, collision rate: 0.00, nav time: 16.50, total reward: 0.1805
+2024-02-27 13:02:12, INFO: TRAIN in episode 9 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:02:16, INFO: TRAIN in episode 10 has success rate: 1.00, collision rate: 0.00, nav time: 18.75, total reward: 0.1424
+2024-02-27 13:02:20, INFO: TRAIN in episode 11 has success rate: 1.00, collision rate: 0.00, nav time: 14.75, total reward: 0.2170
+2024-02-27 13:02:24, INFO: TRAIN in episode 12 has success rate: 1.00, collision rate: 0.00, nav time: 16.25, total reward: 0.1853
+2024-02-27 13:02:27, INFO: TRAIN in episode 13 has success rate: 1.00, collision rate: 0.00, nav time: 13.00, total reward: 0.2610
+2024-02-27 13:02:31, INFO: TRAIN in episode 14 has success rate: 1.00, collision rate: 0.00, nav time: 16.00, total reward: 0.1902
+2024-02-27 13:02:35, INFO: TRAIN in episode 15 has success rate: 1.00, collision rate: 0.00, nav time: 18.50, total reward: 0.1462
+2024-02-27 13:02:38, INFO: TRAIN in episode 16 has success rate: 1.00, collision rate: 0.00, nav time: 16.00, total reward: 0.1902
+2024-02-27 13:02:42, INFO: TRAIN in episode 17 has success rate: 1.00, collision rate: 0.00, nav time: 16.00, total reward: 0.1902
+2024-02-27 13:02:45, INFO: TRAIN in episode 18 has success rate: 1.00, collision rate: 0.00, nav time: 16.25, total reward: 0.1752
+2024-02-27 13:02:49, INFO: TRAIN in episode 19 has success rate: 1.00, collision rate: 0.00, nav time: 15.75, total reward: 0.1953
+2024-02-27 13:02:53, INFO: TRAIN in episode 20 has success rate: 1.00, collision rate: 0.00, nav time: 18.25, total reward: 0.1501
+2024-02-27 13:02:57, INFO: TRAIN in episode 21 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:03:00, INFO: TRAIN in episode 22 has success rate: 1.00, collision rate: 0.00, nav time: 14.00, total reward: 0.2349
+2024-02-27 13:03:04, INFO: TRAIN in episode 23 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.2059
+2024-02-27 13:03:08, INFO: TRAIN in episode 24 has success rate: 1.00, collision rate: 0.00, nav time: 13.75, total reward: 0.2411
+2024-02-27 13:03:13, INFO: TRAIN in episode 25 has success rate: 1.00, collision rate: 0.00, nav time: 16.50, total reward: 0.1805
+2024-02-27 13:03:17, INFO: TRAIN in episode 26 has success rate: 1.00, collision rate: 0.00, nav time: 19.50, total reward: 0.1316
+2024-02-27 13:03:21, INFO: TRAIN in episode 27 has success rate: 1.00, collision rate: 0.00, nav time: 17.25, total reward: 0.1544
+2024-02-27 13:03:25, INFO: TRAIN in episode 28 has success rate: 1.00, collision rate: 0.00, nav time: 20.50, total reward: 0.1184
+2024-02-27 13:03:29, INFO: TRAIN in episode 29 has success rate: 1.00, collision rate: 0.00, nav time: 14.75, total reward: 0.1637
+2024-02-27 13:03:33, INFO: TRAIN in episode 30 has success rate: 1.00, collision rate: 0.00, nav time: 13.75, total reward: 0.2411
+2024-02-27 13:03:37, INFO: TRAIN in episode 31 has success rate: 1.00, collision rate: 0.00, nav time: 18.50, total reward: 0.1462
+2024-02-27 13:03:39, INFO: TRAIN in episode 32 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.1644
+2024-02-27 13:03:40, INFO: TRAIN in episode 33 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.1499
+2024-02-27 13:03:44, INFO: TRAIN in episode 34 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.2114
+2024-02-27 13:03:48, INFO: TRAIN in episode 35 has success rate: 1.00, collision rate: 0.00, nav time: 21.50, total reward: 0.1066
+2024-02-27 13:03:52, INFO: TRAIN in episode 36 has success rate: 1.00, collision rate: 0.00, nav time: 16.00, total reward: 0.1550
+2024-02-27 13:03:55, INFO: TRAIN in episode 37 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.2114
+2024-02-27 13:03:59, INFO: TRAIN in episode 38 has success rate: 1.00, collision rate: 0.00, nav time: 17.75, total reward: 0.1582
+2024-02-27 13:04:03, INFO: TRAIN in episode 39 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:04:07, INFO: TRAIN in episode 40 has success rate: 1.00, collision rate: 0.00, nav time: 17.25, total reward: 0.1507
+2024-02-27 13:04:11, INFO: TRAIN in episode 41 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.2114
+2024-02-27 13:04:14, INFO: TRAIN in episode 42 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:04:18, INFO: TRAIN in episode 43 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:04:22, INFO: TRAIN in episode 44 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.1978
+2024-02-27 13:04:25, INFO: TRAIN in episode 45 has success rate: 1.00, collision rate: 0.00, nav time: 14.50, total reward: 0.2228
+2024-02-27 13:04:30, INFO: TRAIN in episode 46 has success rate: 1.00, collision rate: 0.00, nav time: 20.50, total reward: 0.1184
+2024-02-27 13:04:34, INFO: TRAIN in episode 47 has success rate: 1.00, collision rate: 0.00, nav time: 16.25, total reward: 0.1853
+2024-02-27 13:04:38, INFO: TRAIN in episode 48 has success rate: 1.00, collision rate: 0.00, nav time: 18.00, total reward: 0.1541
+2024-02-27 13:04:42, INFO: TRAIN in episode 49 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.1712
+2024-02-27 13:04:46, INFO: TRAIN in episode 50 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1407
+2024-02-27 13:04:51, INFO: TRAIN in episode 51 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:04:54, INFO: TRAIN in episode 52 has success rate: 1.00, collision rate: 0.00, nav time: 18.25, total reward: 0.1501
+2024-02-27 13:04:58, INFO: TRAIN in episode 53 has success rate: 1.00, collision rate: 0.00, nav time: 13.25, total reward: 0.2227
+2024-02-27 13:05:02, INFO: TRAIN in episode 54 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:05:05, INFO: TRAIN in episode 55 has success rate: 1.00, collision rate: 0.00, nav time: 16.50, total reward: 0.1805
+2024-02-27 13:05:09, INFO: TRAIN in episode 56 has success rate: 1.00, collision rate: 0.00, nav time: 15.50, total reward: 0.2005
+2024-02-27 13:05:13, INFO: TRAIN in episode 57 has success rate: 1.00, collision rate: 0.00, nav time: 18.25, total reward: 0.1501
+2024-02-27 13:05:17, INFO: TRAIN in episode 58 has success rate: 1.00, collision rate: 0.00, nav time: 13.00, total reward: 0.2610
+2024-02-27 13:05:21, INFO: TRAIN in episode 59 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:05:25, INFO: TRAIN in episode 60 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.2114
+2024-02-27 13:05:29, INFO: TRAIN in episode 61 has success rate: 1.00, collision rate: 0.00, nav time: 14.75, total reward: 0.2170
+2024-02-27 13:05:32, INFO: TRAIN in episode 62 has success rate: 1.00, collision rate: 0.00, nav time: 18.50, total reward: 0.1462
+2024-02-27 13:05:36, INFO: TRAIN in episode 63 has success rate: 1.00, collision rate: 0.00, nav time: 13.00, total reward: 0.2610
+2024-02-27 13:05:40, INFO: TRAIN in episode 64 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.2114
+2024-02-27 13:05:44, INFO: TRAIN in episode 65 has success rate: 1.00, collision rate: 0.00, nav time: 16.00, total reward: 0.1902
+2024-02-27 13:05:48, INFO: TRAIN in episode 66 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:05:52, INFO: TRAIN in episode 67 has success rate: 1.00, collision rate: 0.00, nav time: 21.25, total reward: 0.1094
+2024-02-27 13:05:55, INFO: TRAIN in episode 68 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:05:59, INFO: TRAIN in episode 69 has success rate: 1.00, collision rate: 0.00, nav time: 17.50, total reward: 0.1624
+2024-02-27 13:06:03, INFO: TRAIN in episode 70 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:06:06, INFO: TRAIN in episode 71 has success rate: 1.00, collision rate: 0.00, nav time: 13.00, total reward: 0.2610
+2024-02-27 13:06:09, INFO: TRAIN in episode 72 has success rate: 1.00, collision rate: 0.00, nav time: 14.00, total reward: 0.2349
+2024-02-27 13:06:10, INFO: TRAIN in episode 73 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.2310
+2024-02-27 13:06:14, INFO: TRAIN in episode 74 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.2059
+2024-02-27 13:06:17, INFO: TRAIN in episode 75 has success rate: 1.00, collision rate: 0.00, nav time: 15.75, total reward: 0.1953
+2024-02-27 13:06:20, INFO: TRAIN in episode 76 has success rate: 1.00, collision rate: 0.00, nav time: 13.75, total reward: 0.2411
+2024-02-27 13:06:24, INFO: TRAIN in episode 77 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:06:28, INFO: TRAIN in episode 78 has success rate: 1.00, collision rate: 0.00, nav time: 15.75, total reward: 0.1953
+2024-02-27 13:06:31, INFO: TRAIN in episode 79 has success rate: 1.00, collision rate: 0.00, nav time: 17.25, total reward: 0.1527
+2024-02-27 13:06:35, INFO: TRAIN in episode 80 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:06:36, INFO: TRAIN in episode 81 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.1294
+2024-02-27 13:06:40, INFO: TRAIN in episode 82 has success rate: 1.00, collision rate: 0.00, nav time: 13.25, total reward: 0.2542
+2024-02-27 13:06:43, INFO: TRAIN in episode 83 has success rate: 1.00, collision rate: 0.00, nav time: 13.75, total reward: 0.2411
+2024-02-27 13:06:48, INFO: TRAIN in episode 84 has success rate: 1.00, collision rate: 0.00, nav time: 17.75, total reward: 0.1582
+2024-02-27 13:06:51, INFO: TRAIN in episode 85 has success rate: 1.00, collision rate: 0.00, nav time: 18.00, total reward: 0.1468
+2024-02-27 13:06:55, INFO: TRAIN in episode 86 has success rate: 1.00, collision rate: 0.00, nav time: 18.00, total reward: 0.1541
+2024-02-27 13:06:59, INFO: TRAIN in episode 87 has success rate: 1.00, collision rate: 0.00, nav time: 11.75, total reward: 0.2977
+2024-02-27 13:07:03, INFO: TRAIN in episode 88 has success rate: 1.00, collision rate: 0.00, nav time: 20.25, total reward: 0.1216
+2024-02-27 13:07:07, INFO: TRAIN in episode 89 has success rate: 1.00, collision rate: 0.00, nav time: 17.50, total reward: 0.1624
+2024-02-27 13:07:11, INFO: TRAIN in episode 90 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.2059
+2024-02-27 13:07:15, INFO: TRAIN in episode 91 has success rate: 1.00, collision rate: 0.00, nav time: 14.75, total reward: 0.1922
+2024-02-27 13:07:19, INFO: TRAIN in episode 92 has success rate: 1.00, collision rate: 0.00, nav time: 11.75, total reward: 0.2755
+2024-02-27 13:07:22, INFO: TRAIN in episode 93 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:07:26, INFO: TRAIN in episode 94 has success rate: 1.00, collision rate: 0.00, nav time: 13.25, total reward: 0.2365
+2024-02-27 13:07:30, INFO: TRAIN in episode 95 has success rate: 1.00, collision rate: 0.00, nav time: 15.75, total reward: 0.1953
+2024-02-27 13:07:34, INFO: TRAIN in episode 96 has success rate: 1.00, collision rate: 0.00, nav time: 14.00, total reward: 0.2349
+2024-02-27 13:07:38, INFO: TRAIN in episode 97 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:07:42, INFO: TRAIN in episode 98 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:07:46, INFO: TRAIN in episode 99 has success rate: 1.00, collision rate: 0.00, nav time: 13.75, total reward: 0.2299
+2024-02-27 13:07:46, INFO: evaluating model on episode number 100 
+2024-02-27 13:14:49, INFO: VAL   in episode 100 has success rate: 0.95, collision rate: 0.05, nav time: 10.15, total reward: 0.1849
+2024-02-27 13:14:49, INFO: Frequency of being in danger: 0.33 and average min separate distance in danger: 0.04
+2024-02-27 13:14:52, INFO: TRAIN in episode 100 has success rate: 1.00, collision rate: 0.00, nav time: 12.00, total reward: 0.2900
+2024-02-27 13:14:56, INFO: TRAIN in episode 101 has success rate: 1.00, collision rate: 0.00, nav time: 15.50, total reward: 0.2005
+2024-02-27 13:15:00, INFO: TRAIN in episode 102 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.2114
+2024-02-27 13:15:03, INFO: TRAIN in episode 103 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:15:07, INFO: TRAIN in episode 104 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.2059
+2024-02-27 13:15:11, INFO: TRAIN in episode 105 has success rate: 1.00, collision rate: 0.00, nav time: 19.25, total reward: 0.1351
+2024-02-27 13:15:15, INFO: TRAIN in episode 106 has success rate: 1.00, collision rate: 0.00, nav time: 18.00, total reward: 0.1541
+2024-02-27 13:15:19, INFO: TRAIN in episode 107 has success rate: 1.00, collision rate: 0.00, nav time: 20.25, total reward: 0.1216
+2024-02-27 13:15:23, INFO: TRAIN in episode 108 has success rate: 1.00, collision rate: 0.00, nav time: 13.75, total reward: 0.2411
+2024-02-27 13:15:26, INFO: TRAIN in episode 109 has success rate: 1.00, collision rate: 0.00, nav time: 15.75, total reward: 0.1953
+2024-02-27 13:15:30, INFO: TRAIN in episode 110 has success rate: 1.00, collision rate: 0.00, nav time: 14.50, total reward: 0.2216
+2024-02-27 13:15:34, INFO: TRAIN in episode 111 has success rate: 1.00, collision rate: 0.00, nav time: 14.00, total reward: 0.2349
+2024-02-27 13:15:37, INFO: TRAIN in episode 112 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:15:39, INFO: TRAIN in episode 113 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.1592
+2024-02-27 13:15:42, INFO: TRAIN in episode 114 has success rate: 1.00, collision rate: 0.00, nav time: 13.75, total reward: 0.2068
+2024-02-27 13:15:46, INFO: TRAIN in episode 115 has success rate: 1.00, collision rate: 0.00, nav time: 18.50, total reward: 0.1462
+2024-02-27 13:15:50, INFO: TRAIN in episode 116 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.1818
+2024-02-27 13:15:54, INFO: TRAIN in episode 117 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:15:58, INFO: TRAIN in episode 118 has success rate: 1.00, collision rate: 0.00, nav time: 15.75, total reward: 0.1335
+2024-02-27 13:16:01, INFO: TRAIN in episode 119 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:16:06, INFO: TRAIN in episode 120 has success rate: 1.00, collision rate: 0.00, nav time: 23.25, total reward: 0.0886
+2024-02-27 13:16:10, INFO: TRAIN in episode 121 has success rate: 1.00, collision rate: 0.00, nav time: 19.25, total reward: 0.1263
+2024-02-27 13:16:11, INFO: TRAIN in episode 122 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.1588
+2024-02-27 13:16:15, INFO: TRAIN in episode 123 has success rate: 1.00, collision rate: 0.00, nav time: 13.25, total reward: 0.2542
+2024-02-27 13:16:16, INFO: TRAIN in episode 124 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.1615
+2024-02-27 13:16:20, INFO: TRAIN in episode 125 has success rate: 1.00, collision rate: 0.00, nav time: 13.00, total reward: 0.2610
+2024-02-27 13:16:23, INFO: TRAIN in episode 126 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.2059
+2024-02-27 13:16:27, INFO: TRAIN in episode 127 has success rate: 1.00, collision rate: 0.00, nav time: 17.75, total reward: 0.1082
+2024-02-27 13:16:31, INFO: TRAIN in episode 128 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:16:35, INFO: TRAIN in episode 129 has success rate: 1.00, collision rate: 0.00, nav time: 16.25, total reward: 0.1853
+2024-02-27 13:16:39, INFO: TRAIN in episode 130 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2123
+2024-02-27 13:16:43, INFO: TRAIN in episode 131 has success rate: 1.00, collision rate: 0.00, nav time: 16.75, total reward: 0.1758
+2024-02-27 13:16:47, INFO: TRAIN in episode 132 has success rate: 1.00, collision rate: 0.00, nav time: 14.75, total reward: 0.2170
+2024-02-27 13:16:50, INFO: TRAIN in episode 133 has success rate: 1.00, collision rate: 0.00, nav time: 14.50, total reward: 0.2228
+2024-02-27 13:16:54, INFO: TRAIN in episode 134 has success rate: 1.00, collision rate: 0.00, nav time: 19.00, total reward: 0.1387
+2024-02-27 13:16:58, INFO: TRAIN in episode 135 has success rate: 1.00, collision rate: 0.00, nav time: 15.00, total reward: 0.1898
+2024-02-27 13:16:59, INFO: TRAIN in episode 136 has success rate: 0.00, collision rate: 1.00, nav time: 25.00, total reward: -0.1598
+2024-02-27 13:17:03, INFO: TRAIN in episode 137 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.1225
+2024-02-27 13:17:07, INFO: TRAIN in episode 138 has success rate: 1.00, collision rate: 0.00, nav time: 13.50, total reward: 0.2476
+2024-02-27 13:17:11, INFO: TRAIN in episode 139 has success rate: 1.00, collision rate: 0.00, nav time: 18.75, total reward: 0.1424
+2024-02-27 13:17:15, INFO: TRAIN in episode 140 has success rate: 1.00, collision rate: 0.00, nav time: 14.50, total reward: 0.2228
+2024-02-27 13:17:19, INFO: TRAIN in episode 141 has success rate: 1.00, collision rate: 0.00, nav time: 15.75, total reward: 0.1953
+2024-02-27 13:17:22, INFO: TRAIN in episode 142 has success rate: 1.00, collision rate: 0.00, nav time: 13.00, total reward: 0.2610
+2024-02-27 13:17:25, INFO: TRAIN in episode 143 has success rate: 1.00, collision rate: 0.00, nav time: 12.25, total reward: 0.2476
+2024-02-27 13:17:29, INFO: TRAIN in episode 144 has success rate: 1.00, collision rate: 0.00, nav time: 15.25, total reward: 0.2059
+2024-02-27 13:17:33, INFO: TRAIN in episode 145 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:17:37, INFO: TRAIN in episode 146 has success rate: 1.00, collision rate: 0.00, nav time: 20.00, total reward: 0.1248
+2024-02-27 13:17:41, INFO: TRAIN in episode 147 has success rate: 1.00, collision rate: 0.00, nav time: 13.00, total reward: 0.2610
+2024-02-27 13:17:45, INFO: TRAIN in episode 148 has success rate: 1.00, collision rate: 0.00, nav time: 13.50, total reward: 0.2476
+2024-02-27 13:17:49, INFO: TRAIN in episode 149 has success rate: 1.00, collision rate: 0.00, nav time: 17.75, total reward: 0.1582
+2024-02-27 13:17:52, INFO: TRAIN in episode 150 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:17:56, INFO: TRAIN in episode 151 has success rate: 1.00, collision rate: 0.00, nav time: 14.75, total reward: 0.2170
+2024-02-27 13:17:59, INFO: TRAIN in episode 152 has success rate: 1.00, collision rate: 0.00, nav time: 13.25, total reward: 0.2542
+2024-02-27 13:18:03, INFO: TRAIN in episode 153 has success rate: 1.00, collision rate: 0.00, nav time: 14.25, total reward: 0.2288
+2024-02-27 13:18:06, INFO: TRAIN in episode 154 has success rate: 1.00, collision rate: 0.00, nav time: 16.00, total reward: 0.1902
+2024-02-27 13:18:10, INFO: TRAIN in episode 155 has success rate: 1.00, collision rate: 0.00, nav time: 17.00, total reward: 0.1712
+2024-02-27 13:18:13, INFO: TRAIN in episode 156 has success rate: 1.00, collision rate: 0.00, nav time: 10.00, total reward: 0.3280
+2024-02-27 13:18:17, INFO: TRAIN in episode 157 has success rate: 1.00, collision rate: 0.00, nav time: 17.50, total reward: 0.1622
