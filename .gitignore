@@ -9,7 +9,6 @@ __pycache__
 .cache/
 venv*/
 
-# data
-data/
+# data  
 *.mp4
 videos/

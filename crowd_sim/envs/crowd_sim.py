@@ -3,12 +3,13 @@ import gym
 import matplotlib.lines as mlines
 import numpy as np
 import rvo2
+import json
 from matplotlib import patches
 from numpy.linalg import norm
 from crowd_sim.envs.utils.human import Human
 from crowd_sim.envs.utils.info import *
 from crowd_sim.envs.utils.utils import point_to_segment_dist
-
+from crowd_sim.envs.testing_suite import TestingSuite
 
 class CrowdSim(gym.Env):
     metadata = {'render.modes': ['human']}
@@ -48,7 +49,10 @@ class CrowdSim(gym.Env):
         self.action_values = None
         self.attention_weights = None
 
+        
+
     def configure(self, config):
+        print(f'the config is {config}')
         self.config = config
         self.time_limit = config.getint('env', 'time_limit')
         self.time_step = config.getfloat('env', 'time_step')
@@ -66,6 +70,7 @@ class CrowdSim(gym.Env):
             self.square_width = config.getfloat('sim', 'square_width')
             self.circle_radius = config.getfloat('sim', 'circle_radius')
             self.human_num = config.getint('sim', 'human_num')
+
         else:
             raise NotImplementedError
         self.case_counter = {'train': 0, 'test': 0, 'val': 0}
@@ -77,6 +82,13 @@ class CrowdSim(gym.Env):
             logging.info("Not randomize human's radius and preferred speed")
         logging.info('Training simulation: {}, test simulation: {}'.format(self.train_val_sim, self.test_sim))
         logging.info('Square width: {}, circle width: {}'.format(self.square_width, self.circle_radius))
+        logging.info('----------')
+        TESTINGscenarios = config.get("testing-suite","scenarios")
+        logging.info(f'The testing scenarios are: {TESTINGscenarios}')
+        conflict_radius = config.getfloat("testing-suite", "extended_parameter")
+        epsilon = config.getfloat("testing-suite", "epsilon")
+        logging.info(f'The extended parameter is {conflict_radius}, and the epsilon is {epsilon}')
+
 
     def set_robot(self, robot):
         self.robot = robot
@@ -91,7 +103,7 @@ class CrowdSim(gym.Env):
         :param rule:
         :return:
         """
-        # initial min separation distance to avoid danger penalty at beginning
+        # initial min separation distance to a      void danger penalty at beginning
         if rule == 'square_crossing':
             self.humans = []
             for i in range(human_num):
@@ -151,7 +163,13 @@ class CrowdSim(gym.Env):
                     self.humans.append(human)
         else:
             raise ValueError("Rule doesn't exist")
-
+        
+            # Creating the testing suite
+        self.get_testing_suite() 
+    
+    
+    def get_testing_suite(self):
+        self.testing_suite = TestingSuite(self.humans, self.robot, self.config)
     def generate_circle_crossing_human(self):
         human = Human(self.config, 'humans')
         if self.randomize_attributes:
@@ -253,8 +271,6 @@ class CrowdSim(gym.Env):
         Set px, py, gx, gy, vx, vy, theta for robot and humans
         :return:
         """
-        # print('reset was called')
-        # print(f"{phase}")
         if self.robot is None:
             raise AttributeError('robot has to be set!')
         assert phase in ['train', 'val', 'test']
@@ -262,10 +278,7 @@ class CrowdSim(gym.Env):
             self.case_counter[phase] = test_case
         self.global_time = 0
         if phase == 'test':
-            # print("This was called")
             self.human_times = [0] * self.human_num
-            # print(f"{self.human_num}")
-            # print(f"{self.human_times}")
         else:
             self.human_times = [0] * (self.human_num if self.robot.policy.multiagent_training else 1)
         if not self.robot.policy.multiagent_training:
@@ -401,30 +414,21 @@ class CrowdSim(gym.Env):
             if hasattr(self.robot.policy, 'get_attention_weights'):
                 self.attention_weights.append(self.robot.policy.get_attention_weights())
 
+            # Testing Suite
+
+            self.testing_suite.testing_suite(human, human_id=i)
+
             # update all agents
             self.robot.step(action)
+            
             for i, human_action in enumerate(human_actions):
                 self.humans[i].step(human_action)
             self.global_time += self.time_step
-            # print('start')
-            # print(len(self.humans))
-            # print(self.human_times)
-            # print(self.human_num)
-            # print('end')
             for i, human in enumerate(self.humans):
-                # print(i)
                 # only record the first time the human reaches the goal
-                t = None
-                
                 if self.human_times[i] == 0 and human.reached_destination():
                     self.human_times[i] = self.global_time
-                # except:
-                #     print(f'{self.human_num}')
-                #     print(f'{self.human_times}')
-                #     print(i)
-                #     t = True
-                # if t:
-                #     raise Exception("some thing messed up")
+
             # compute the observation
             if self.robot.sensor == 'coordinates':
                 ob = [human.get_observable_state() for human in self.humans]
