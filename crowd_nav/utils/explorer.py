@@ -36,13 +36,17 @@ class Explorer(object):
         # tqdm.write(f'Running for {k} episodes')
         for i in tqdm(range(k)):
             ob = self.env.reset(phase)
+            # print(f'the human num after reseting is {self.env.human_num}')
             done = False
             states = []
             actions = []
             rewards = []
+            i = 0
             while not done:
                 action = self.robot.act(ob)
                 ob, reward, done, info = self.env.step(action)
+                i += 1
+                # print(f'the human num after step {i} is {self.env.human_num}')
                 states.append(self.robot.policy.last_state)
                 actions.append(action)
                 rewards.append(reward)
@@ -50,22 +54,22 @@ class Explorer(object):
                 if isinstance(info, Danger):
                     too_close += 1
                     min_dist.append(info.min_dist)
-            tqdm.write(f'Done with episode {i}/{k}')
+            # tqdm.write(f'Done with episode {i}/{k}')
 
             if isinstance(info, ReachGoal):
                 success += 1
                 success_times.append(self.env.global_time)
-                tqdm.write(f'Goal reached')
+                # tqdm.write(f'Goal reached')
             elif isinstance(info, Collision):
                 collision += 1
                 collision_cases.append(i)
                 collision_times.append(self.env.global_time)
-                tqdm.write(f'Collision occured')
+                # tqdm.write(f'Collision occured')
             elif isinstance(info, Timeout):
                 timeout += 1
                 timeout_cases.append(i)
                 timeout_times.append(self.env.time_limit)
-                tqdm.write(f'Time out')
+                # tqdm.write(f'Time out')
             else:
                 raise ValueError('Invalid end signal from environment')
 
@@ -73,7 +77,7 @@ class Explorer(object):
                 if isinstance(info, ReachGoal) or isinstance(info, Collision):
                     # only add positive(success) or negative(collision) experience in experience set
                     self.update_memory(states, actions, rewards, imitation_learning)
-                tqdm.write(f'Experience set size: {len(self.memory)}/{self.memory.capacity}')
+                # tqdm.write(f'Experience set size: {len(self.memory)}/{self.memory.capacity}')
             cumulative_rewards.append(sum([pow(self.gamma, t * self.robot.time_step * self.robot.v_pref)
                                            * reward for t, reward in enumerate(rewards)]))
 

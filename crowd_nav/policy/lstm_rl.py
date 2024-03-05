@@ -23,9 +23,12 @@ class ValueNetwork1(nn.Module):
         """
         size = state.shape
         self_state = state[:, 0, :self.self_state_dim]
+        # logging.info(f'LSTM state shape: {state.shape}')
         # human_state = state[:, :, self.self_state_dim:]
         h0 = torch.zeros(1, size[0], self.lstm_hidden_dim)
         c0 = torch.zeros(1, size[0], self.lstm_hidden_dim)
+        # logging.info(f'LSTM hidden shape: {h0.shape}')
+
         output, (hn, cn) = self.lstm(state, (h0, c0))
         hn = hn.squeeze(0)
         joint_state = torch.cat([self_state, hn], dim=1)
@@ -64,7 +67,7 @@ class ValueNetwork2(nn.Module):
         value = self.mlp(joint_state)
         return value
 
-    
+
 class LstmRL(MultiHumanRL):
     def __init__(self):
         super().__init__()
@@ -102,4 +105,3 @@ class LstmRL(MultiHumanRL):
 
         state.human_states = sorted(state.human_states, key=dist, reverse=True)
         return super().predict(state)
-

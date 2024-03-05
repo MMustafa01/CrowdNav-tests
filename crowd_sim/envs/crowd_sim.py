@@ -253,6 +253,8 @@ class CrowdSim(gym.Env):
         Set px, py, gx, gy, vx, vy, theta for robot and humans
         :return:
         """
+        # print('reset was called')
+        # print(f"{phase}")
         if self.robot is None:
             raise AttributeError('robot has to be set!')
         assert phase in ['train', 'val', 'test']
@@ -260,7 +262,10 @@ class CrowdSim(gym.Env):
             self.case_counter[phase] = test_case
         self.global_time = 0
         if phase == 'test':
+            # print("This was called")
             self.human_times = [0] * self.human_num
+            # print(f"{self.human_num}")
+            # print(f"{self.human_times}")
         else:
             self.human_times = [0] * (self.human_num if self.robot.policy.multiagent_training else 1)
         if not self.robot.policy.multiagent_training:
@@ -401,11 +406,25 @@ class CrowdSim(gym.Env):
             for i, human_action in enumerate(human_actions):
                 self.humans[i].step(human_action)
             self.global_time += self.time_step
+            # print('start')
+            # print(len(self.humans))
+            # print(self.human_times)
+            # print(self.human_num)
+            # print('end')
             for i, human in enumerate(self.humans):
+                # print(i)
                 # only record the first time the human reaches the goal
+                t = None
+                
                 if self.human_times[i] == 0 and human.reached_destination():
                     self.human_times[i] = self.global_time
-
+                # except:
+                #     print(f'{self.human_num}')
+                #     print(f'{self.human_times}')
+                #     print(i)
+                #     t = True
+                # if t:
+                #     raise Exception("some thing messed up")
             # compute the observation
             if self.robot.sensor == 'coordinates':
                 ob = [human.get_observable_state() for human in self.humans]

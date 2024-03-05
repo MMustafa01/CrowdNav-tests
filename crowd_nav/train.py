@@ -99,6 +99,7 @@ def main():
     memory = ReplayMemory(capacity)
     model = policy.get_model()
     batch_size = train_config.getint('trainer', 'batch_size')
+    # Aliasing of memory and model
     trainer = Trainer(model, memory, device, batch_size)
     explorer = Explorer(env, robot, device, memory, policy.gamma, target_policy=policy)
 
@@ -172,6 +173,7 @@ def main():
             explorer.update_target_model(model)
 
         if episode != 0 and episode % checkpoint_interval == 0:
+            logging.info(f'RL model saved')
             torch.save(model.state_dict(), rl_weight_file)
 
     # final test

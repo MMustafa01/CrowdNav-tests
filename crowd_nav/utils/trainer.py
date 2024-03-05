@@ -29,6 +29,7 @@ class Trainer(object):
             self.data_loader = DataLoader(self.memory, self.batch_size, shuffle=True)
         average_epoch_loss = 0
         for epoch in range(num_epochs):
+            self.model.train()
             epoch_loss = 0
             for data in self.data_loader:
                 inputs, values = data

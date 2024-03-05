@@ -1,6 +1,6 @@
 from crowd_sim.envs.utils.agent import Agent
 from crowd_sim.envs.utils.state import JointState
-
+from tqdm import tqdm
 
 class Robot(Agent):
     def __init__(self, config, section):

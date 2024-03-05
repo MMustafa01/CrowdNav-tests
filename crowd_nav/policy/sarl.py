@@ -32,10 +32,14 @@ class ValueNetwork(nn.Module):
         :param state: tensor of shape (batch_size, # of humans, length of a rotated state)
         :return:
         """
+        print('start')
+        
         size = state.shape
+        # print(f'{size}')
         self_state = state[:, 0, :self.self_state_dim]
         mlp1_output = self.mlp1(state.view((-1, size[2])))
         mlp2_output = self.mlp2(mlp1_output)
+        # print(f'{mlp2_output.shape}')
 
         if self.with_global_state:
             # compute attention scores
@@ -62,6 +66,8 @@ class ValueNetwork(nn.Module):
         # concatenate agent's state with global weighted humans' state
         joint_state = torch.cat([self_state, weighted_feature], dim=1)
         value = self.mlp3(joint_state)
+        print(f'{value.shape}')
+        print('end')
         return value
 
 
