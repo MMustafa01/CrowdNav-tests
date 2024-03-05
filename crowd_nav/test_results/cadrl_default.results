@@ -1,0 +1,13 @@
+2023-12-17 23:04:44, INFO: Using device: cpu
+2023-12-17 23:04:44, INFO: Policy: CADRL without occupancy map
+2023-12-17 23:04:44, INFO: human number: 5
+2023-12-17 23:04:44, INFO: Not randomize human's radius and preferred speed
+2023-12-17 23:04:44, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-12-17 23:04:44, INFO: Square width: 10.0, circle width: 4.0
+2023-12-17 23:04:44, INFO: The testing scenarios are: NA
+2023-12-17 23:04:44, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2023-12-17 23:04:44, INFO: Agent is invisible and has holonomic kinematic constraint
+2023-12-17 23:37:10, INFO: TEST  has success rate: 0.95, collision rate: 0.05, nav time: 11.32, total reward: 0.2610
+2023-12-17 23:37:10, INFO: Frequency of being in danger: 0.16 and average min separate distance in danger: 0.14
+2023-12-17 23:37:10, INFO: Collision cases: 10 44 47 63 86 139 163 208 219 227 261 277 319 324 365 378 384 392 402 438 449 451 493
+2023-12-17 23:37:10, INFO: Timeout cases: 28 53 184

@@ -1,0 +1,13 @@
+2023-12-19 10:35:39, INFO: Using device: cpu
+2023-12-19 10:35:39, INFO: Policy: LSTM-RL w/o pairwise interaction module
+2023-12-19 10:35:39, INFO: human number: 5
+2023-12-19 10:35:39, INFO: Not randomize human's radius and preferred speed
+2023-12-19 10:35:39, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-12-19 10:35:39, INFO: Square width: 10.0, circle width: 4.0
+2023-12-19 10:35:39, INFO: The testing scenarios are: adversarial_by_birth
+2023-12-19 10:35:39, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2023-12-19 10:35:39, INFO: Agent is invisible and has holonomic kinematic constraint
+2023-12-19 11:35:00, INFO: TEST  has success rate: 0.82, collision rate: 0.11, nav time: 12.16, total reward: 0.1843
+2023-12-19 11:35:00, INFO: Frequency of being in danger: 0.15 and average min separate distance in danger: 0.11
+2023-12-19 11:35:00, INFO: Collision cases: 12 21 25 27 29 31 34 48 61 66 70 72 73 75 99 101 117 118 122 152 153 167 170 171 174 176 179 195 220 235 261 266 279 281 291 333 334 349 357 365 366 367 396 397 404 415 450 454 455 458 464 468 472 477 480 487 490
+2023-12-19 11:35:00, INFO: Timeout cases: 8 13 16 39 51 58 67 82 158 161 165 185 201 228 230 241 262 274 286 304 311 319 336 358 363 381 411 414 440 443 456 483 488 498

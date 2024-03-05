@@ -1,0 +1,1 @@
+python test.py --policy lstm_rl --phase test --policy_config data/output_lstmrl_trained_SS_ADBB/policy.config --model_dir data/output_lstmrl > test_results/lstmrl_trained_tested_ADBB_SS.results

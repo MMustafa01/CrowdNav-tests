@@ -1,0 +1,13 @@
+2023-12-17 21:04:35, INFO: Using device: cpu
+2023-12-17 21:04:35, INFO: Policy: CADRL without occupancy map
+2023-12-17 21:04:35, INFO: human number: 5
+2023-12-17 21:04:35, INFO: Not randomize human's radius and preferred speed
+2023-12-17 21:04:35, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-12-17 21:04:35, INFO: Square width: 10.0, circle width: 4.0
+2023-12-17 21:04:35, INFO: The testing scenarios are: adversarial_by_birth
+2023-12-17 21:04:35, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2023-12-17 21:04:35, INFO: Agent is invisible and has holonomic kinematic constraint
+2023-12-17 22:00:15, INFO: TEST  has success rate: 0.59, collision rate: 0.15, nav time: 11.80, total reward: 0.1102
+2023-12-17 22:00:16, INFO: Frequency of being in danger: 0.24 and average min separate distance in danger: 0.14
+2023-12-17 22:00:16, INFO: Collision cases: 2 3 15 16 47 51 53 74 79 80 84 85 86 88 89 93 97 108 112 116 125 128 130 133 134 140 147 161 183 185 188 195 196 199 200 206 208 223 224 225 227 239 240 245 252 268 269 279 290 294 305 318 320 332 334 354 360 363 367 378 392 397 402 417 421 422 427 435 445 446 449 475 476 478 495
+2023-12-17 22:00:16, INFO: Timeout cases: 0 4 12 13 17 18 22 24 25 26 30 31 35 37 38 40 43 46 55 63 68 69 71 82 87 94 96 98 101 105 106 109 110 114 120 122 123 138 139 143 148 154 157 158 163 167 169 170 171 172 173 174 177 179 184 191 192 198 201 203 205 212 213 226 230 237 246 250 254 257 259 260 263 265 270 273 275 276 281 291 292 293 296 300 303 304 306 308 317 325 328 331 337 340 341 353 357 370 371 373 374 375 381 391 393 394 395 400 410 414 424 426 428 454 458 460 461 464 466 468 470 473 474 481 487 489 492 496
