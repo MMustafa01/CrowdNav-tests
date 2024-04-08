@@ -1,0 +1,26 @@
+ValueNetork(
+  (lstm): LSTM(13, 50, batch_first=True)
+  (mambaLayer): Mamba(
+    (in_proj): Linear(in_features=56, out_features=112, bias=False)
+    (conv1d): Conv1d(56, 56, kernel_size=(4,), stride=(1,), padding=(3,), groups=56)
+    (act): SiLU()
+    (x_proj): Linear(in_features=56, out_features=36, bias=False)
+    (dt_proj): Linear(in_features=4, out_features=56, bias=True)
+    (out_proj): Linear(in_features=56, out_features=1, bias=False)
+  )
+)
+2024-03-07 11:40:18, INFO: Using device: cuda:0
+2024-03-07 11:40:18, INFO: Policy:MambaRL
+2024-03-07 11:40:18, INFO: human number: 4
+2024-03-07 11:40:18, INFO: Not randomize human's radius and preferred speed
+2024-03-07 11:40:18, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-03-07 11:40:18, INFO: Square width: 10.0, circle width: 4.0
+2024-03-07 11:40:18, INFO: ----------
+2024-03-07 11:40:18, INFO: The testing scenarios are: NA
+2024-03-07 11:40:18, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2024-03-07 11:40:18, INFO: Agent is invisible and has holonomic kinematic constraint
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [41:36<00:00,  4.99s/it]
+2024-03-07 12:21:55, INFO: TEST  has success rate: 0.90, collision rate: 0.02, nav time: 11.00, total reward: 0.2788
+2024-03-07 12:21:55, INFO: Frequency of being in danger: 0.04 and average min separate distance in danger: 0.11
+2024-03-07 12:21:55, INFO: Collision cases: 16 120 292 296 301 372 373 415 469
+2024-03-07 12:21:55, INFO: Timeout cases: 5 8 23 35 54 58 60 79 97 112 128 159 180 195 197 202 207 214 221 231 233 252 257 267 279 282 299 303 364 374 390 395 411 419 425 449 453 454 465 477 492 495 499

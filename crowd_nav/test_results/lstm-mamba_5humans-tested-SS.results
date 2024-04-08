@@ -1,0 +1,28 @@
+ValueNetork(
+  (lstm): LSTM(13, 50, batch_first=True)
+  (mambaLayer): Mamba(
+    (in_proj): Linear(in_features=56, out_features=112, bias=False)
+    (conv1d): Conv1d(56, 56, kernel_size=(4,), stride=(1,), padding=(3,), groups=56)
+    (act): SiLU()
+    (x_proj): Linear(in_features=56, out_features=36, bias=False)
+    (dt_proj): Linear(in_features=4, out_features=56, bias=True)
+    (out_proj): Linear(in_features=56, out_features=1, bias=False)
+  )
+)
+the config is <configparser.RawConfigParser object at 0x7f38e053b100>
+the config is <configparser.RawConfigParser object at 0x7f28b44fb100>
+2024-03-07 10:49:47, INFO: Using device: cuda:0
+2024-03-07 10:49:47, INFO: Policy:MambaRL
+2024-03-07 10:49:47, INFO: human number: 5
+2024-03-07 10:49:47, INFO: Not randomize human's radius and preferred speed
+2024-03-07 10:49:47, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-03-07 10:49:47, INFO: Square width: 10.0, circle width: 4.0
+2024-03-07 10:49:47, INFO: ----------
+2024-03-07 10:49:47, INFO: The testing scenarios are: sudden_speed_up
+2024-03-07 10:49:47, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2024-03-07 10:49:47, INFO: Agent is invisible and has holonomic kinematic constraint
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [43:29<00:00,  5.22s/it]
+2024-03-07 11:33:17, INFO: TEST  has success rate: 0.97, collision rate: 0.02, nav time: 12.15, total reward: 0.2566
+2024-03-07 11:33:17, INFO: Frequency of being in danger: 0.07 and average min separate distance in danger: 0.09
+2024-03-07 11:33:17, INFO: Collision cases: 47 83 167 240 242 271 415 429 433 497
+2024-03-07 11:33:17, INFO: Timeout cases: 67 356 362

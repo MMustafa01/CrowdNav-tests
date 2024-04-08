@@ -1,0 +1,27 @@
+ValueNetork(
+  (lstm): LSTM(13, 50, batch_first=True)
+  (mambaLayer): Mamba(
+    (in_proj): Linear(in_features=56, out_features=112, bias=False)
+    (conv1d): Conv1d(56, 56, kernel_size=(4,), stride=(1,), padding=(3,), groups=56)
+    (act): SiLU()
+    (x_proj): Linear(in_features=56, out_features=36, bias=False)
+    (dt_proj): Linear(in_features=4, out_features=56, bias=True)
+    (out_proj): Linear(in_features=56, out_features=1, bias=False)
+  )
+)
+the config is <configparser.RawConfigParser object at 0x7f8fd007d610>
+2024-03-08 14:14:33, INFO: Using device: cuda:0
+2024-03-08 14:14:33, INFO: Policy:MambaRL
+2024-03-08 14:14:33, INFO: human number: 10
+2024-03-08 14:14:33, INFO: Not randomize human's radius and preferred speed
+2024-03-08 14:14:33, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-03-08 14:14:33, INFO: Square width: 10.0, circle width: 4.0
+2024-03-08 14:14:33, INFO: ----------
+2024-03-08 14:14:33, INFO: The testing scenarios are: adversarial_by_birth
+2024-03-08 14:14:33, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2024-03-08 14:14:33, INFO: Agent is invisible and has holonomic kinematic constraint
+100%|█████████████████████████████████████████████████████████████████████████████████████████| 500/500 [1:05:49<00:00,  7.90s/it]
+2024-03-08 15:20:23, INFO: TEST  has success rate: 0.58, collision rate: 0.39, nav time: 14.89, total reward: 0.0146
+2024-03-08 15:20:23, INFO: Frequency of being in danger: 0.22 and average min separate distance in danger: 0.10
+2024-03-08 15:20:23, INFO: Collision cases: 2 5 9 10 12 17 18 23 25 26 29 30 33 35 36 37 40 44 47 48 49 52 60 61 62 64 68 71 76 80 82 83 85 88 90 92 94 95 97 98 99 100 101 102 107 109 111 117 118 119 120 121 124 128 130 132 136 139 140 143 147 149 150 151 153 154 155 157 163 165 166 171 172 178 179 183 184 185 186 187 189 191 193 194 197 198 206 209 211 219 223 225 229 230 232 235 236 240 246 249 250 251 257 258 259 261 267 271 274 275 276 280 282 284 286 289 291 292 297 299 301 302 304 306 307 312 315 316 318 322 326 328 331 334 337 340 345 347 350 352 354 355 364 372 373 378 382 383 386 389 390 395 402 406 407 409 413 414 415 422 423 425 426 427 428 431 432 435 438 439 441 442 445 446 447 448 450 458 459 462 463 469 470 477 478 480 483 484 488 489 495 496 497
+2024-03-08 15:20:23, INFO: Timeout cases: 21 51 75 81 188 255 281 300 324 327 346 379 384 385 419 437 440

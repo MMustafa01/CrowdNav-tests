@@ -1,0 +1,15 @@
+2024-03-09 14:44:54, INFO: Using device: cpu
+2024-03-09 14:44:54, INFO: Policy: SARL w/ global state
+2024-03-09 14:44:54, INFO: human number: 10
+2024-03-09 14:44:54, INFO: Not randomize human's radius and preferred speed
+2024-03-09 14:44:54, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-03-09 14:44:54, INFO: Square width: 10.0, circle width: 4.0
+2024-03-09 14:44:54, INFO: ----------
+2024-03-09 14:44:54, INFO: The testing scenarios are: NA
+2024-03-09 14:44:54, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2024-03-09 14:44:54, INFO: Agent is invisible and has holonomic kinematic constraint
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [51:05<00:00,  6.13s/it]
+2024-03-09 15:35:59, INFO: TEST  has success rate: 0.99, collision rate: 0.01, nav time: 12.19, total reward: 0.2733
+2024-03-09 15:35:59, INFO: Frequency of being in danger: 0.07 and average min separate distance in danger: 0.14
+2024-03-09 15:35:59, INFO: Collision cases: 145 146 195 266 305
+2024-03-09 15:35:59, INFO: Timeout cases: 

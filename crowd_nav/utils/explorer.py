@@ -3,6 +3,7 @@ import copy
 import torch
 from crowd_sim.envs.utils.info import *
 from tqdm import tqdm
+import numpy as np
 
 
 class Explorer(object):
@@ -19,6 +20,8 @@ class Explorer(object):
         self.target_model = copy.deepcopy(target_model)
 
     # @profile
+    def push_to_tensor(self,tensor, x):
+        return torch.cat((tensor[1:], torch.Tensor(x)))
     def run_k_episodes(self, k, phase, update_memory=False, imitation_learning=False, episode=None,
                        print_failure=False):
         self.robot.policy.set_phase(phase)
@@ -33,6 +36,12 @@ class Explorer(object):
         cumulative_rewards = []
         collision_cases = []
         timeout_cases = []
+        window_size = 10
+        '''
+        zeros([window size, state size])
+        The window would/should be FIFO
+        '''
+        
         # tqdm.write(f'Running for {k} episodes')
         for i in tqdm(range(k)):
             ob = self.env.reset(phase)
@@ -41,16 +50,18 @@ class Explorer(object):
             states = []
             actions = []
             rewards = []
-            i = 0
+            rollout_window = np.zeros([window_size, self.robot.policy.joint_state_dim], device = self.device ) #This should be a list of states
+            print(f"The observation {np.array(ob).shape}")
             while not done:
                 action = self.robot.act(ob)
                 ob, reward, done, info = self.env.step(action)
-                i += 1
                 # print(f'the human num after step {i} is {self.env.human_num}')
                 states.append(self.robot.policy.last_state)
                 actions.append(action)
                 rewards.append(reward)
-
+                print(f"The last state {np.array(self.robot.policy.last_state).shape}")
+                self.push_to_tensor(rollout_window,self.robot.policy.last_state)
+                
                 if isinstance(info, Danger):
                     too_close += 1
                     min_dist.append(info.min_dist)
@@ -123,15 +134,6 @@ class Explorer(object):
                     value = reward + gamma_bar * self.target_model(next_state.unsqueeze(0)).data.item()
             value = torch.Tensor([value]).to(self.device)
 
-            # # transform state of different human_num into fixed-size tensor
-            # if len(state.size()) == 1:
-            #     human_num = 1
-            #     feature_size = state.size()[0]
-            # else:
-            #     human_num, feature_size = state.size()
-            # if human_num != 5:
-            #     padding = torch.zeros((5 - human_num, feature_size))
-            #     state = torch.cat([state, padding])
             self.memory.push((state, value))
 
 

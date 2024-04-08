@@ -1,0 +1,27 @@
+ValueNetork(
+  (lstm): LSTM(13, 50, batch_first=True)
+  (mambaLayer): Mamba(
+    (in_proj): Linear(in_features=56, out_features=112, bias=False)
+    (conv1d): Conv1d(56, 56, kernel_size=(4,), stride=(1,), padding=(3,), groups=56)
+    (act): SiLU()
+    (x_proj): Linear(in_features=56, out_features=36, bias=False)
+    (dt_proj): Linear(in_features=4, out_features=56, bias=True)
+    (out_proj): Linear(in_features=56, out_features=1, bias=False)
+  )
+)
+the config is <configparser.RawConfigParser object at 0x7ff86454b100>
+2024-03-07 08:12:15, INFO: Using device: cuda:0
+2024-03-07 08:12:15, INFO: Policy:MambaRL
+2024-03-07 08:12:15, INFO: human number: 5
+2024-03-07 08:12:15, INFO: Not randomize human's radius and preferred speed
+2024-03-07 08:12:15, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-03-07 08:12:15, INFO: Square width: 10.0, circle width: 4.0
+2024-03-07 08:12:15, INFO: ----------
+2024-03-07 08:12:15, INFO: The testing scenarios are: adversarial_by_birth sudden_speed_up
+2024-03-07 08:12:15, INFO: The extended parameter is 2.5, and the epsilon is 0.25
+2024-03-07 08:12:15, INFO: Agent is invisible and has holonomic kinematic constraint
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [44:51<00:00,  5.38s/it]
+2024-03-07 08:57:07, INFO: TEST  has success rate: 0.80, collision rate: 0.18, nav time: 12.77, total reward: 0.1578
+2024-03-07 08:57:07, INFO: Frequency of being in danger: 0.14 and average min separate distance in danger: 0.11
+2024-03-07 08:57:07, INFO: Collision cases: 5 16 23 26 32 34 46 48 59 60 65 70 75 76 79 83 87 99 103 105 106 111 115 127 144 149 155 159 166 167 173 180 183 186 199 204 208 219 220 225 229 236 242 248 255 270 271 276 286 289 290 292 294 296 302 313 332 334 348 352 354 363 365 366 369 377 378 389 392 396 407 412 427 428 430 432 434 436 449 460 464 475 476 477 478 479 489 494
+2024-03-07 08:57:07, INFO: Timeout cases: 28 33 49 218 228 240 241 310 379 452 453 493
